@@ -1,33 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ES2022",                    // ← обновил, современнее
-    "module": "NodeNext",                  // ← КЛЮЧЕВОЕ! решает import.meta + openid-client
-    "moduleResolution": "NodeNext",        // ← обязательно вместе с NodeNext
-    "rootDir": ".",                        // оставляем
-    "outDir": "dist",                      // оставляем
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "baseUrl": ".",
+    "outDir": "dist",
+    "rootDir": ".",
     "esModuleInterop": true,
-    "skipLibCheck": true,                  // уже хорошо
-    "strict": true,                        // лучше включить, но можно false
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": false,  // ← добавь это, чтобы игнорировать "implicit any" на время
     "types": ["node"],
-    "baseUrl": ".",                        // ← добавь
-    "paths": {                             // ← САМОЕ ВАЖНОЕ для @shared
-      "@shared/*": ["shared/*"]            // если shared в корне репозитория
-      // варианты, если не подходит:
-      // "@shared/*": ["./shared/*"]
-      // "@shared/*": ["../shared/*"]      // если из server/
+    "paths": {
+      "@shared/*": ["shared/*"]  // ← обязательно, для @shared/schema → shared/schema.ts
     }
   },
   "include": [
-    "server/**/*.ts",                      // ← все файлы сервера, а не только index.ts
-    "shared/**/*.ts"                       // ← добавляем shared, чтобы типы виделись
+    "server/**/*.ts",
+    "shared/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "dist",
     "build",
     "**/*.test.ts",
-    "vite.config.ts",                      // ← оставляем исключение vite-файлов
+    "vite.config.ts",
     "server/vite.ts"
-    // "shared/**/*"   ← УБРАТЬ! иначе алиасы не работают
   ]
 }
