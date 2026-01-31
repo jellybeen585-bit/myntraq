@@ -9,16 +9,16 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true,
-    "noImplicitAny": false,  // ← добавь это, чтобы игнорировать "implicit any" на время
+    "noImplicitAny": false,
     "types": ["node"],
     "paths": {
-      "@shared/*": ["shared/*"]  // ← обязательно, для @shared/schema → shared/schema.ts
+      "@shared/*": ["shared/*"]
     }
   },
   "include": [
-  "server/**/*.ts",
-  "shared/**/*.ts"
-],
+    "server/**/*.ts",
+    "shared/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",
