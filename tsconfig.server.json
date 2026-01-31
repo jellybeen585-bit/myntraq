@@ -1,11 +1,19 @@
 {
-  "extends": "./tsconfig.json",
-  "include": ["server/**/*", "shared/**/*"],
-  "exclude": ["node_modules", "dist", "build", "**/*.test.ts"],
   "compilerOptions": {
-    "noEmit": false,
-    "outDir": "dist",
+    "target": "ES2020",
+    "module": "CommonJS",
     "rootDir": ".",
-    "module": "CommonJS"
-  }
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["./shared/*"]
+    }
+  },
+  "include": ["server/**/*", "shared/**/*"],
+  "exclude": ["node_modules", "dist", "build", "**/*.test.ts"]
 }
