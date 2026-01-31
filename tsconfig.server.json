@@ -8,19 +8,10 @@
     "skipLibCheck": true,
     "strict": false,
     "moduleResolution": "node",
-    "types": ["node"],
-    "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["./shared/*"]
-    }
+    "types": ["node"]
   },
   "include": [
-    "server/index.ts",
-    "server/routes.ts",
-    "server/static.ts",
-    "server/replit_integrations/auth/**/*.ts",
-    "server/replit_integrations/object_storage/**/*.ts",
-    "shared/**/*"
+    "server/index.ts"
   ],
   "exclude": [
     "node_modules",
@@ -28,6 +19,8 @@
     "build",
     "vite.config.ts",
     "server/vite.ts",
+    "server/storage.ts",
+    "shared/**/*",
     "**/*.test.ts"
   ]
 }
