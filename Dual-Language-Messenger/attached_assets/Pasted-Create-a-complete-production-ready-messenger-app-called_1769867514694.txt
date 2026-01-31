@@ -1,0 +1,83 @@
+Create a complete, production-ready messenger app called Myntraq on Replit using React (frontend), Node.js/Express (backend), Socket.io (real-time), and MongoDB (database). Make it universal for iPhone, Android, and Web (responsive PWA with mobile-first design). Deploy it as a full-stack Replit app with one-click run.
+
+Core Features (Implement ALL):
+Auth: Email registration + email verification (use Nodemailer). Login/logout via email/password. JWT tokens for sessions.
+
+User Profiles: Assign unique tag/username (e.g., @myntraq_user) after registration. Search users by tag or email. Add friends (mutual approval).
+
+Chats: 1:1 private chats, group chats (up to 100 users), channels (broadcast). Auto-search/create chats.
+
+Messaging: Text, emojis, stickers (upload/create sticker packs). Voice messages (record/send via Web Audio API).
+
+Media: Send photos/videos/files (store temporarily on server, use Multer + cloud storage like Replit DB or external if needed). Attach links (auto-preview), embed videos/music (YouTube/Spotify links).
+
+Calls: Audio/video calls (use WebRTC + Socket.io for P2P).
+
+Keyboard: Customizable quick-reply keyboard (emojis/stickers shortcuts).
+
+Security: End-to-end encryption (use CryptoJS for messages). HTTPS enforced.
+
+No extras: Skip stories, subscriptions, bots — keep it simple like Telegram core.
+
+File Storage: Server-side storage for temp files, photos/videos (MongoDB GridFS or local FS).
+
+Design & UI (VS Code Dark Theme + Myntraq Palette):
+Style: Clean, modern like VS Code dark theme (monospace fonts, subtle shadows, rounded corners).
+
+Colors (Myntraq palette — dark but soft):
+
+Name	Hex	Use Example
+Background	#121212	Main app background
+Surface	#1E1E1E	Chat cards, panels, modals
+Primary	#007BFF	Buttons, accents, active icons
+Text Primary	#E0E0E0	Names, main messages
+Secondary	#9E9E9E	Status, timestamps, borders
+Visual Example (implement this style everywhere):
+
+text
+[Full-screen #121212 bg]
+└── Chat list card (#1E1E1E border #9E9E9E)
+    ├── User @name (#E0E0E0)
+    ├── Message preview (#E0E0E0)
+    └── Send button (#007BFF bg, white text, hover glow)
+Layout: Sidebar (chats/friends), main chat area, bottom input bar. Mobile: Swipe gestures, full-screen chats.
+
+Fonts: JetBrains Mono or Fira Code (monospace) for code-like feel. Responsive: Touch-friendly on mobile.
+
+Tech Stack (Replit-Ready):
+text
+Frontend: React 18 + Tailwind CSS + Socket.io-client
+Backend: Node.js + Express + Socket.io + Mongoose (MongoDB)
+Auth: bcrypt + JWT + Nodemailer
+Media: Multer + WebRTC (simple-peer lib)
+Real-time: Socket.io for messages/calls/typing indicators
+DB: MongoDB Atlas (free tier) or Replit DB
+PWA: Add manifest/service worker for mobile install.
+Responsive: Tailwind for mobile/desktop (iPhone/Android/Web).
+
+Encryption: Encrypt messages client-side before sending (CryptoJS AES).
+
+File Structure (Auto-generate):
+text
+replit.nix (Node.js + React template)
+- backend/
+  - server.js (Express + Socket.io)
+  - routes/auth.js, chats.js, media.js
+  - models/User.js, Message.js
+- frontend/
+  - src/App.js (main layout)
+  - components/Chat.js, Auth.js, Call.js
+  - public/manifest.json (PWA)
+- package.json (all deps: express, socket.io, react, tailwind, etc.)
+Steps to Implement:
+Set up full-stack Replit (React + Node).
+
+Backend: Auth API, chat rooms, file upload, WebRTC signaling.
+
+Frontend: Responsive UI with Tailwind, real-time updates via Socket.io.
+
+Test: Email signup, send message/photo/voice, start call, search @user.
+
+Polish: Dark mode only, smooth animations, offline support (PWA).
+
+Make it run instantly on Replit with .replit config. Output clean code, no errors. Focus on usable MVP first, then polish. App name: Myntraq everywhere.
